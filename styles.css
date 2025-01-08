@@ -1,0 +1,2002 @@
+/* Reset and base styles */
+:root {
+    --primary-color: #002B49;
+    --secondary-color: #E31837;
+    --text-color: #333333;
+    --form-bg: #F7F7F7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background: #fff;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Header styles */
+header {
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px 0;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Container styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Remove duplicate header container styles */
+header .container {
+    /* These styles are now handled by the main .container class */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+}
+
+.logo img {
+    height: 40px;
+}
+
+/* Phone button container */
+.contact-header {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+/* Phone button styles */
+.phone-button {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    margin: 0;
+}
+
+.phone-button:hover {
+    background: #f8f8f8;
+    border-color: var(--primary-color);
+}
+
+/* Phone text container */
+.phone-text {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0.5rem;
+    padding: 0;
+}
+
+.phone-number {
+    color: #ff6b00;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.phone-text span:first-child {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Main content layout */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 15px;
+}
+
+/* Left content styles */
+.content-left {
+    padding-right: 2rem;
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: var(--primary-color);
+    font-size: 24px;
+    color: #444;
+    margin-bottom: 30px;
+}
+
+/* Benefits list container */
+.initial-content {
+    width: 100%;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+/* Benefits list styles */
+.benefits-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 30px auto; /* Center the list */
+    width: calc(100% - 30px); /* Account for container padding */
+    max-width: 600px; /* Limit maximum width */
+    box-sizing: border-box;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: #f9f9f9;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.benefit-item img {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.benefit-item span {
+    font-size: 14px;
+    line-height: 1.2;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+/* Form styles - base */
+.eligibility-form {
+    background: var(--primary-color);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 25px 20px;
+    color: white;
+    display: none; /* Hide by default */
+    width: 380px;
+    margin: 0 auto; /* Center the form */
+    box-sizing: border-box;
+}
+
+/* Show desktop form on larger screens */
+@media (min-width: 769px) {
+    .desktop-only.eligibility-form {
+        display: block;
+        position: sticky;
+        top: 20px;
+    }
+}
+
+/* Mobile form adjustments */
+@media (max-width: 768px) {
+    .main-content {
+        grid-template-columns: 1fr;
+        padding: 0;
+    }
+
+    .content-left {
+        padding: 0;  /* Remove padding from content-left */
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;  /* Center children horizontally */
+    }
+
+    .content-left .eligibility-form {
+        display: block;
+        width: calc(100% - 30px);  /* Account for padding */
+        max-width: 500px;
+        margin: 2rem auto;
+        padding: 20px;
+    }
+
+    /* Ensure the initial content (title, benefits, etc) is also centered */
+    .initial-content {
+        width: 100%;
+        max-width: 600px;  /* Match benefits list max-width */
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+
+    .desktop-only.eligibility-form {
+        display: none;
+    }
+
+    /* Ensure form elements are contained */
+    .form-group {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Adjust radio groups for mobile */
+    .radio-group {
+        width: 100%;
+        gap: 10px;
+    }
+
+    .radio-option {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 360px) {
+    .content-left .eligibility-form {
+        width: calc(100% - 20px);  /* Slightly less padding on very small screens */
+        padding: 15px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 8px 12px;
+    }
+}
+
+.eligibility-form h2 {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.eligibility-form p {
+    color: white;
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Form inputs */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Update form label styles */
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+/* Mobile form labels (dark background) */
+.eligibility-form:not(.desktop-only) .form-group label {
+    color: white;
+}
+
+/* Desktop form labels */
+.desktop-only .form-group label {
+    color: var(--text-color);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* Radio buttons */
+.radio-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 8px;
+}
+
+.radio-option {
+    flex: 1;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.radio-option input[type="radio"] {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.radio-option span {
+    color: var(--text-color);
+    font-size: 14px;
+}
+
+/* Ensure radio buttons are visible */
+.radio-option input[type="radio"] {
+    appearance: auto;
+    -webkit-appearance: auto;
+    width: auto;
+    height: auto;
+    margin: 0 8px 0 0;
+}
+
+/* Add hover effect */
+.radio-option:hover {
+    background-color: #f8f8f8;
+}
+
+/* Remove any conflicting styles */
+.radio-option label span {
+    color: var(--text-color) !important;
+}
+
+/* Terms checkbox */
+.terms-agreement {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 4px;
+    font-size: 12px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 15px 0;
+}
+
+.terms-agreement a {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Submit button */
+.submit-button {
+    background: #00b050;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 15px 0;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background: #009544;
+}
+
+/* Act now text */
+.act-now {
+    color: white;
+}
+
+.red-dot {
+    color: #ff0000;
+    font-size: 24px;
+    line-height: 0;
+    margin-right: 2px;
+    animation: pulsate 1.5s ease-out infinite;
+}
+
+@keyframes pulsate {
+    0% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.2;
+    }
+}
+
+/* Form features section */
+.cta-features {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 15px 0;
+    color: white;
+    font-size: 14px;
+}
+
+.cta-features span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cta-features i {
+    color: var(--secondary-color);
+    font-size: 16px;
+}
+
+/* Form assistance section */
+.form-assistance {
+    text-align: center;
+    margin-top: 25px;
+    padding: 15px;
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+/* Desktop form assistance section */
+.desktop-only .form-assistance {
+    background: var(--primary-color);
+}
+
+/* Assistance text styling */
+.assistance-text {
+    font-size: 14px;
+    color: white;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    padding: 0 15px;
+    margin-bottom: 15px;
+}
+
+/* Lines on sides of text */
+.assistance-text:before,
+.assistance-text:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.assistance-text:before {
+    right: 100%;
+}
+
+.assistance-text:after {
+    left: 100%;
+}
+
+.phone-box {
+    display: block;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    text-decoration: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.get-in-touch {
+    color: #333;
+    font-size: 14px;
+    margin: 0 0 10px 0;
+}
+
+.qualify-phone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.qualify-phone img {
+    width: 20px;
+    height: 20px;
+}
+
+.qualify-phone .phone-number {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* Form security note */
+.form-security {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 20px;
+    text-align: center;
+}
+
+.form-security i {
+    color: var(--secondary-color);
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .main-content {
+        margin-top: 20px;
+    }
+    
+    .content-left {
+        padding-right: 0;
+    }
+    
+    .eligibility-form {
+        position: static;
+        margin-top: 2rem;
+    }
+    
+    .benefits-list {
+        width: calc(100% - 20px); /* Slightly less padding on mobile */
+        gap: 0.75rem;
+        margin: 20px auto;
+    }
+    
+    h1 {
+        font-size: 36px;
+    }
+    
+    nav {
+        padding: 1rem;
+    }
+}
+
+/* Additional sections styling */
+.join-lawsuit,
+.eligibility,
+.verdicts,
+.process,
+.trust-reasons,
+.faq {
+    padding: 60px 0;
+    background: #fff;
+}
+
+.join-lawsuit:nth-child(even),
+.eligibility:nth-child(even),
+.verdicts:nth-child(even),
+.process:nth-child(even),
+.trust-reasons:nth-child(even),
+.faq:nth-child(even) {
+    background: #f8f8f8;
+}
+
+/* Footer styles */
+footer {
+    background: var(--primary-color);
+    color: white;
+    padding: 3rem 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-disclaimer {
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Enhanced CTA styles */
+.act-now {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.red-dot {
+    color: var(--secondary-color);
+    font-size: 24px;
+    vertical-align: middle;
+}
+
+/* Enhanced section styles */
+.join-lawsuit,
+.eligibility,
+.verdicts,
+.process,
+.trust-reasons,
+.faq {
+    padding: 60px 0;
+}
+
+/* Enhanced verdicts table */
+.verdicts-table {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin: 30px 0;
+}
+
+.table-headers {
+    background: var(--primary-color);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px 8px 0 0;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.verdict-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Enhanced trust reasons */
+.trust-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.trust-item img {
+    width: 40px;
+    height: 40px;
+}
+
+.trust-text h3 {
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+/* Enhanced FAQ styles */
+.faq-question {
+    width: 100%;
+    text-align: left;
+    padding: 20px;
+    background: #f8f8f8;
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-answer {
+    display: none;
+    padding: 0 20px 20px;
+    color: #666;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+.faq-question i {
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+/* Enhanced assistance section */
+.assistance-section {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.assistance-text {
+    font-size: 14px;
+    color: #666;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    padding: 0 15px;
+    margin-bottom: 15px;
+}
+
+/* Add horizontal lines on both sides of "For Immediate Assistance" */
+.assistance-text:before,
+.assistance-text:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    height: 1px;
+    background: #ddd;
+}
+
+.assistance-text:before {
+    right: 100%;
+}
+
+.assistance-text:after {
+    left: 100%;
+}
+
+/* Phone box styling */
+.phone-box {
+    display: block;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    text-decoration: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.get-in-touch {
+    color: #333;
+    font-size: 14px;
+    margin: 0 0 10px 0;
+}
+
+.qualify-phone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.qualify-phone img {
+    width: 24px;
+    height: 24px;
+}
+
+.phone-number {
+    color: #ff6b00;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Hover effect */
+.phone-box:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Enhanced mobile styles */
+@media (max-width: 768px) {
+    .main-content {
+        margin-top: 20px;
+    }
+    
+    .content-left h1 {
+        font-size: 36px;
+    }
+    
+    .mobile-banner {
+        margin: 20px 0;
+    }
+    
+    .mobile-banner img {
+        width: 100%;
+        height: auto;
+    }
+    
+    .benefits-list {
+        margin: 20px 0;
+    }
+    
+    .verdict-row {
+        padding: 10px 15px;
+    }
+}
+
+/* Form validation styles */
+.form-group input:invalid,
+.form-group select:invalid,
+.form-group textarea:invalid {
+    border-color: #e5e5e5;
+}
+
+/* Loading state for form submission */
+.submit-button.loading {
+    position: relative;
+    color: white !important;
+    opacity: 1 !important;
+}
+
+.submit-button.loading::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #fff;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: button-loading-spinner 1s linear infinite;
+}
+
+@keyframes button-loading-spinner {
+    from {
+        transform: rotate(0turn);
+    }
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+/* Update form width and padding */
+.eligibility-form {
+    width: 380px;
+    padding: 25px 20px;
+}
+
+/* Update form inputs */
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 10px 15px;
+    font-size: 15px;
+    border: 1px solid #e5e5e5;
+    outline: none;
+}
+
+/* Update radio buttons */
+.radio-option {
+    padding: 6px 12px;
+    font-size: 14px;
+}
+
+/* Update terms text */
+.terms-agreement {
+    font-size: 11px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.terms-agreement input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+/* Ensure button text is visible in all states */
+.submit-button span,
+.submit-button i {
+    color: white !important;
+    opacity: 1 !important;
+}
+
+/* Ensure radio options in desktop form are visible */
+.desktop-only .radio-option {
+    background: white;
+    border: 1px solid #ddd;
+}
+
+.desktop-only .radio-option span,
+.desktop-only .radio-option input[type="radio"] {
+    color: var(--text-color);
+}
+
+/* Desktop form specific styles */
+.desktop-only.eligibility-form {
+    background: var(--primary-color);  /* Change back to blue background */
+}
+
+/* Keep text white for better contrast on blue background */
+.desktop-only.eligibility-form h2,
+.desktop-only.eligibility-form p,
+.desktop-only.eligibility-form .act-now,
+.desktop-only.eligibility-form .cta-features,
+.desktop-only.eligibility-form .assistance-text,
+.desktop-only.eligibility-form .get-in-touch,
+.desktop-only.eligibility-form .phone-box,
+.desktop-only.eligibility-form .form-security,
+.desktop-only.eligibility-form .form-group > label {
+    color: white;
+}
+
+/* Keep form elements with white background */
+.desktop-only .radio-option {
+    background: white;
+    border: 1px solid #ddd;
+}
+
+/* Keep radio button text dark for contrast against white background */
+.desktop-only .radio-option span {
+    color: var(--text-color);
+}
+
+/* Keep terms agreement styling consistent with blue background */
+.desktop-only .terms-agreement {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.desktop-only .terms-agreement a {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Keep assistance section styling consistent */
+.desktop-only .form-assistance {
+    background: var(--primary-color);
+}
+
+.desktop-only .phone-box .phone-number {
+    color: #ff6b00;
+}
+
+/* Radio button styles */
+.radio-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 8px;
+}
+
+.radio-option {
+    flex: 1;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Yes option when selected */
+.radio-option:has(input[type="radio"][value="yes"]:checked) {
+    background-color: #00b050; /* Solid green background */
+    border-color: #00b050;
+}
+
+.radio-option:has(input[type="radio"][value="yes"]:checked) span {
+    color: white !important; /* White text */
+    font-weight: bold;
+}
+
+/* No option when selected */
+.radio-option:has(input[type="radio"][value="no"]:checked) {
+    background-color: #E31837; /* Solid red background */
+    border-color: #E31837;
+}
+
+.radio-option:has(input[type="radio"][value="no"]:checked) span {
+    color: white !important; /* White text */
+    font-weight: bold;
+}
+
+/* Radio input styling */
+.radio-option input[type="radio"] {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+/* Hover states */
+.radio-option:hover {
+    background-color: #f8f8f8;
+}
+
+.radio-option:has(input[type="radio"][value="yes"]:checked):hover {
+    background-color: #009544; /* Slightly darker green on hover */
+}
+
+.radio-option:has(input[type="radio"][value="no"]:checked):hover {
+    background-color: #cc1630; /* Slightly darker red on hover */
+}
+
+/* Add hover effect */
+.radio-option:hover {
+    background-color: #f8f8f8;
+}
+
+/* Remove any conflicting styles */
+.radio-option label span {
+    color: var(--text-color) !important;
+}
+
+/* Terms checkbox */
+.terms-agreement {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 4px;
+    font-size: 12px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 15px 0;
+}
+
+.terms-agreement a {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Submit button */
+.submit-button {
+    background: #00b050;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 15px 0;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background: #009544;
+}
+
+/* Act now text */
+.act-now {
+    color: white;
+}
+
+.red-dot {
+    color: #ff0000;
+    font-size: 24px;
+    line-height: 0;
+    margin-right: 2px;
+    animation: pulsate 1.5s ease-out infinite;
+}
+
+@keyframes pulsate {
+    0% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.2;
+    }
+}
+
+/* Form features section */
+.cta-features {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 15px 0;
+    color: white;
+    font-size: 14px;
+}
+
+.cta-features span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cta-features i {
+    color: var(--secondary-color);
+    font-size: 16px;
+}
+
+/* Form assistance section */
+.form-assistance {
+    text-align: center;
+    margin-top: 25px;
+    padding: 15px;
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+/* Desktop form assistance section */
+.desktop-only .form-assistance {
+    background: var(--primary-color);
+}
+
+/* Assistance text styling */
+.assistance-text {
+    font-size: 14px;
+    color: white;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    padding: 0 15px;
+    margin-bottom: 15px;
+}
+
+/* Lines on sides of text */
+.assistance-text:before,
+.assistance-text:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.assistance-text:before {
+    right: 100%;
+}
+
+.assistance-text:after {
+    left: 100%;
+}
+
+.phone-box {
+    display: block;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    text-decoration: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.get-in-touch {
+    color: #333;
+    font-size: 14px;
+    margin: 0 0 10px 0;
+}
+
+.qualify-phone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.qualify-phone img {
+    width: 24px;
+    height: 24px;
+}
+
+.phone-number {
+    color: #ff6b00;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Hover effect */
+.phone-box:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Enhanced mobile styles */
+@media (max-width: 768px) {
+    .main-content {
+        margin-top: 20px;
+    }
+    
+    .content-left h1 {
+        font-size: 36px;
+    }
+    
+    .mobile-banner {
+        margin: 20px 0;
+    }
+    
+    .mobile-banner img {
+        width: 100%;
+        height: auto;
+    }
+    
+    .benefits-list {
+        margin: 20px 0;
+    }
+    
+    .verdict-row {
+        padding: 10px 15px;
+    }
+}
+
+/* Form validation styles */
+.form-group input:invalid,
+.form-group select:invalid,
+.form-group textarea:invalid {
+    border-color: #e5e5e5;
+}
+
+/* Loading state for form submission */
+.submit-button.loading {
+    position: relative;
+    color: white !important;
+    opacity: 1 !important;
+}
+
+.submit-button.loading::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #fff;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: button-loading-spinner 1s linear infinite;
+}
+
+@keyframes button-loading-spinner {
+    from {
+        transform: rotate(0turn);
+    }
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+/* Update form width and padding */
+.eligibility-form {
+    width: 380px;
+    padding: 25px 20px;
+}
+
+/* Update form inputs */
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 10px 15px;
+    font-size: 15px;
+    border: 1px solid #e5e5e5;
+    outline: none;
+}
+
+/* Update radio buttons */
+.radio-option {
+    padding: 6px 12px;
+    font-size: 14px;
+}
+
+/* Update terms text */
+.terms-agreement {
+    font-size: 11px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.terms-agreement input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+/* Ensure button text is visible in all states */
+.submit-button span,
+.submit-button i {
+    color: white !important;
+    opacity: 1 !important;
+}
+
+/* Ensure radio options in desktop form are visible */
+.desktop-only .radio-option {
+    background: white;
+    border: 1px solid #ddd;
+}
+
+.desktop-only .radio-option span,
+.desktop-only .radio-option input[type="radio"] {
+    color: var(--text-color);
+}
+
+/* Desktop form specific styles */
+.desktop-only.eligibility-form {
+    background: var(--primary-color);  /* Change back to blue background */
+}
+
+/* Keep text white for better contrast on blue background */
+.desktop-only.eligibility-form h2,
+.desktop-only.eligibility-form p,
+.desktop-only.eligibility-form .act-now,
+.desktop-only.eligibility-form .cta-features,
+.desktop-only.eligibility-form .assistance-text,
+.desktop-only.eligibility-form .get-in-touch,
+.desktop-only.eligibility-form .phone-box,
+.desktop-only.eligibility-form .form-security,
+.desktop-only.eligibility-form .form-group > label {
+    color: white;
+}
+
+/* Keep form elements with white background */
+.desktop-only .radio-option {
+    background: white;
+    border: 1px solid #ddd;
+}
+
+/* Keep radio button text dark for contrast against white background */
+.desktop-only .radio-option span {
+    color: var(--text-color);
+}
+
+/* Keep terms agreement styling consistent with blue background */
+.desktop-only .terms-agreement {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.desktop-only .terms-agreement a {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Keep assistance section styling consistent */
+.desktop-only .form-assistance {
+    background: var(--primary-color);
+}
+
+.desktop-only .phone-box .phone-number {
+    color: #ff6b00;
+}
+
+/* Radio button text styling */
+.desktop-only .radio-option,
+.desktop-only .radio-option label {
+    background: white;
+    border: 1px solid #ddd;
+    color: var(--text-color);
+}
+
+/* Make all radio button text consistent */
+.desktop-only .radio-option span,
+.desktop-only .radio-option input[type="radio"],
+.desktop-only .radio-option label {
+    color: var(--text-color);
+}
+
+/* Remove any direct text styling that might override */
+.desktop-only .radio-group label {
+    color: var(--text-color) !important;
+}
+
+/* Ensure consistent text color for all radio options */
+.desktop-only .radio-option {
+    color: var(--text-color) !important;
+}
+
+/* Remove any conflicting styles */
+.radio-option label span,
+.radio-option label,
+.radio-option span {
+    color: var(--text-color) !important;
+}
+
+/* Ensure radio options always have dark text */
+.desktop-only .radio-option {
+    background: white;
+    border: 1px solid #ddd;
+    color: var(--text-color);
+}
+
+/* Mobile form radio buttons */
+.eligibility-form:not(.desktop-only) .radio-option {
+    background: white;
+    border: 1px solid #ddd;
+    color: var(--text-color);
+}
+
+.eligibility-form:not(.desktop-only) .radio-option span {
+    color: var(--text-color);
+}
+
+/* Ensure consistent styling for both forms */
+.radio-option {
+    flex: 1;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.radio-option span {
+    color: var(--text-color);
+    font-size: 14px;
+}
+
+/* Lawsuit Updates Section */
+.lawsuit-updates {
+    margin: 40px 0;
+    padding: 30px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.lawsuit-updates h2 {
+    color: var(--primary-color);
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.updates-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.update-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.update-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.update-icon {
+    flex-shrink: 0;
+    color: #2196F3;  /* Blue color for the check icons */
+    font-size: 20px;
+}
+
+.update-content {
+    flex: 1;
+}
+
+.update-content p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.update-content strong {
+    color: var(--primary-color);
+}
+
+.update-content sup {
+    color: #666;
+    font-size: 11px;
+    margin-left: 2px;
+}
+
+/* CTA Section Styling */
+.cta-section {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.act-now {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.red-dot {
+    color: #ff0000;
+    font-size: 24px;
+    line-height: 0;
+    margin-right: 2px;
+}
+
+.get-review-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #00c853;
+    color: white;
+    text-decoration: none;
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.get-review-btn i {
+    margin-left: 8px;
+    font-size: 14px;
+}
+
+.get-review-btn:hover {
+    background: #00b34a;
+}
+
+.cta-features {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    font-size: 14px;
+    color: #333;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.feature-item i {
+    color: #00c853;
+    font-size: 16px;
+}
+
+/* Terms checkbox container styling */
+.checkbox-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-top: 3px; /* Align with first line of text */
+    flex-shrink: 0;
+    width: auto;
+    height: auto;
+}
+
+.terms-text {
+    flex: 1;
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+/* Update terms agreement section */
+.terms-agreement {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 4px;
+    margin: 15px 0;
+}
+
+.terms-agreement a {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Phone number styling */
+.phone-number {
+    color: #ff6b00;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* For the desktop form (white background) */
+.desktop-only .phone-box .phone-number {
+    color: #ff6b00;
+}
+
+/* Hover state - keep orange color */
+.phone-box:hover .phone-number {
+    color: #ff6b00;
+}
+
+/* Override any white text color in desktop form */
+.desktop-only .phone-box .get-in-touch {
+    color: #333 !important;
+}
+
+/* Override any white text color in mobile form */
+.eligibility-form .phone-box .get-in-touch {
+    color: #333 !important;
+}
+
+/* Optional: Add subtle focus state without red */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #002B49;
+    box-shadow: 0 0 0 1px rgba(0, 43, 73, 0.1);
+}
+
+/* Header mobile adjustments */
+@media (max-width: 768px) {
+    /* Header container */
+    header {
+        padding: 10px 0;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        width: 100%;
+    }
+
+    /* Navigation */
+    nav {
+        padding: 0 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: none;
+    }
+
+    /* Logo adjustments */
+    .logo img {
+        height: 40px;
+        width: auto;
+    }
+
+    /* Phone button container */
+    .contact-header {
+        flex-shrink: 1; /* Allow shrinking if needed */
+    }
+
+    /* Phone button styling */
+    .phone-button {
+        display: flex;
+        align-items: center;
+        padding: 6px 10px;
+        border-radius: 6px;
+        background: white;
+        border: 1px solid #ddd;
+        min-width: auto; /* Allow button to shrink */
+    }
+
+    /* Phone text container */
+    .phone-text {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    /* "Get In Touch Now" text */
+    .phone-text span:first-child {
+        font-size: 12px;
+        color: #666;
+        white-space: nowrap;
+    }
+
+    /* Phone number */
+    .phone-button .phone-number {
+        font-size: 16px;
+        font-weight: bold;
+        color: #ff6b00;
+        white-space: nowrap;
+    }
+
+    /* Phone icon */
+    .phone-icon img {
+        width: 16px;
+        height: 16px;
+        margin-right: 4px;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 360px) {
+    nav {
+        padding: 0 10px;
+    }
+
+    .logo img {
+        height: 35px;
+    }
+
+    .phone-button {
+        padding: 4px 8px;
+    }
+
+    .phone-text span:first-child {
+        font-size: 11px;
+    }
+
+    .phone-button .phone-number {
+        font-size: 14px;
+    }
+}
+
+/* Ensure header stays fixed at top on mobile if needed */
+@media (max-width: 480px) {
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: white;
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden; /* Prevent horizontal scroll */
+    }
+    
+    header {
+        width: 100vw;
+        left: 0;
+        right: 0;
+        margin: 0;
+    }
+}
+
+/* Remove any conflicting mobile styles */
+@media (max-width: 768px) {
+    header,
+    header .container,
+    nav {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .container,
+    header .container {
+        padding: 0 15px;
+    }
+}
+
+/* Reference section styling */
+.reference-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.reference-column {
+    flex: 1;
+}
+
+.reference-column ol {
+    padding-left: 20px;
+}
+
+.reference-column li {
+    margin-bottom: 10px;
+}
+
+.reference-column a {
+    /* Add these properties to handle long URLs */
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow-wrap: break-word;
+    display: inline-block;
+    max-width: 100%;
+}
+
+/* Mobile adjustments for references */
+@media (max-width: 768px) {
+    .reference-list {
+        flex-direction: column;
+    }
+
+    .reference-column {
+        width: 100%;
+    }
+
+    .reference-column a {
+        font-size: 14px; /* Slightly smaller font on mobile */
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 360px) {
+    .benefit-item {
+        padding: 8px;
+    }
+    
+    .benefit-item img {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .benefit-item span {
+        font-size: 12px;
+    }
+}
+
+/* Radio buttons styling */
+.radio-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 8px;
+}
+
+.radio-option {
+    flex: 1;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Specific styling for the exposure question radio options */
+.form-group[data-question="exposure"] .radio-option input[type="radio"]:checked + span {
+    font-weight: bold;
+}
+
+/* Yes option when selected */
+.form-group[data-question="exposure"] .radio-option input[value="yes"]:checked + span {
+    color: #00b050; /* Green color */
+}
+
+/* No option when selected */
+.form-group[data-question="exposure"] .radio-option input[value="no"]:checked + span {
+    color: #E31837; /* Red color */
+}
+
+/* Background color change on selection */
+.form-group[data-question="exposure"] .radio-option input[value="yes"]:checked ~ * {
+    background-color: rgba(0, 176, 80, 0.1); /* Light green background */
+}
+
+.form-group[data-question="exposure"] .radio-option input[value="no"]:checked ~ * {
+    background-color: rgba(227, 24, 55, 0.1); /* Light red background */
+}
+
+/* Radio button styles for Yes/No answers */
+.radio-option input[type="radio"][value="yes"]:checked + span {
+    color: #00b050 !important; /* Green */
+    font-weight: bold;
+}
+
+.radio-option input[type="radio"][value="no"]:checked + span {
+    color: #E31837 !important; /* Red */
+    font-weight: bold;
+}
+
+/* Background color changes */
+.radio-option input[type="radio"][value="yes"]:checked {
+    background-color: rgba(0, 176, 80, 0.1); /* Light green */
+}
+
+.radio-option input[type="radio"][value="no"]:checked {
+    background-color: rgba(227, 24, 55, 0.1); /* Light red */
+}
+
+/* Add hover states */
+.radio-option:has(input[type="radio"][value="yes"]:checked) {
+    border-color: #00b050;
+    background-color: rgba(0, 176, 80, 0.1);
+}
+
+.radio-option:has(input[type="radio"][value="no"]:checked) {
+    border-color: #E31837;
+    background-color: rgba(227, 24, 55, 0.1);
+}
+
+/* Radio button color and animation styles */
+.radio-option input[type="radio"] {
+    transition: all 0.3s ease;
+}
+
+.radio-option:has(input[type="radio"][value="yes"]:checked) input[type="radio"] {
+    accent-color: #00b050;
+    transform: scale(1.2);
+}
+
+.radio-option:has(input[type="radio"][value="no"]:checked) input[type="radio"] {
+    accent-color: #E31837;
+    transform: scale(1.2);
+}
+
+/* Radio button color and animation styles - for both exposure and year questions */
+.radio-option input[type="radio"] {
+    transition: all 0.3s ease;
+}
+
+/* Yes/2004 Or After options when selected */
+.radio-option:has(input[type="radio"][value="yes"]:checked),
+.radio-option:has(input[type="radio"][value="2004-after"]:checked) {
+    background-color: #00b050;
+    border-color: #00b050;
+}
+
+.radio-option:has(input[type="radio"][value="yes"]:checked) span,
+.radio-option:has(input[type="radio"][value="2004-after"]:checked) span {
+    color: white !important;
+    font-weight: bold;
+}
+
+.radio-option:has(input[type="radio"][value="yes"]:checked) input[type="radio"],
+.radio-option:has(input[type="radio"][value="2004-after"]:checked) input[type="radio"] {
+    accent-color: #00b050;
+    transform: scale(1.2);
+}
+
+/* No/Before 2004 options when selected */
+.radio-option:has(input[type="radio"][value="no"]:checked),
+.radio-option:has(input[type="radio"][value="before-2004"]:checked) {
+    background-color: #E31837;
+    border-color: #E31837;
+}
+
+.radio-option:has(input[type="radio"][value="no"]:checked) span,
+.radio-option:has(input[type="radio"][value="before-2004"]:checked) span {
+    color: white !important;
+    font-weight: bold;
+}
+
+.radio-option:has(input[type="radio"][value="no"]:checked) input[type="radio"],
+.radio-option:has(input[type="radio"][value="before-2004"]:checked) input[type="radio"] {
+    accent-color: #E31837;
+    transform: scale(1.2);
+}
+
+/* Hover states */
+.radio-option:has(input[type="radio"][value="yes"]:checked):hover,
+.radio-option:has(input[type="radio"][value="2004-after"]:checked):hover {
+    background-color: #009544;
+}
+
+.radio-option:has(input[type="radio"][value="no"]:checked):hover,
+.radio-option:has(input[type="radio"][value="before-2004"]:checked):hover {
+    background-color: #cc1630;
+}
+
+/* Attorney question radio buttons - reverse colors */
+.radio-option:has(input[type="radio"][value="yes"][name*="attorney"]:checked) {
+    background-color: #E31837; /* Red for Yes */
+    border-color: #E31837;
+}
+
+.radio-option:has(input[type="radio"][value="yes"][name*="attorney"]:checked) span {
+    color: white !important;
+    font-weight: bold;
+}
+
+.radio-option:has(input[type="radio"][value="yes"][name*="attorney"]:checked) input[type="radio"] {
+    accent-color: #E31837;
+    transform: scale(1.2);
+}
+
+/* No option for attorney question */
+.radio-option:has(input[type="radio"][value="no"][name*="attorney"]:checked) {
+    background-color: #00b050; /* Green for No */
+    border-color: #00b050;
+}
+
+.radio-option:has(input[type="radio"][value="no"][name*="attorney"]:checked) span {
+    color: white !important;
+    font-weight: bold;
+}
+
+.radio-option:has(input[type="radio"][value="no"][name*="attorney"]:checked) input[type="radio"] {
+    accent-color: #00b050;
+    transform: scale(1.2);
+}
+
+/* Hover states for attorney question */
+.radio-option:has(input[type="radio"][value="yes"][name*="attorney"]:checked):hover {
+    background-color: #cc1630; /* Darker red */
+}
+
+.radio-option:has(input[type="radio"][value="no"][name*="attorney"]:checked):hover {
+    background-color: #009544; /* Darker green */
+}
