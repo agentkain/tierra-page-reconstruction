@@ -373,15 +373,44 @@ h2 {
     background: rgba(255, 255, 255, 0.1);
     padding: 15px;
     border-radius: 4px;
-    font-size: 12px;
-    line-height: 1.4;
-    color: rgba(255, 255, 255, 0.9);
     margin: 15px 0;
 }
 
-.terms-agreement a {
+.checkbox-container {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    cursor: pointer;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin: 0;
+    width: auto;
+    height: auto;
+    flex-shrink: 0;
+    margin-top: 2px; /* Align with first line of text */
+}
+
+.terms-text {
+    font-size: 11px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.terms-text a {
     color: white;
     text-decoration: underline;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .checkbox-container {
+        gap: 8px;
+    }
+    
+    .terms-text {
+        font-size: 10px;
+    }
 }
 
 /* Submit button */
@@ -795,403 +824,12 @@ footer {
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-/* Enhanced mobile styles */
-@media (max-width: 768px) {
-    .main-content {
-        margin-top: 20px;
-    }
-    
-    .content-left h1 {
-        font-size: 36px;
-    }
-    
-    .mobile-banner {
-        margin: 20px 0;
-    }
-    
-    .mobile-banner img {
-        width: 100%;
-        height: auto;
-    }
-    
-    .benefits-list {
-        margin: 20px 0;
-    }
-    
-    .verdict-row {
-        padding: 10px 15px;
-    }
-}
-
-/* Form validation styles */
-.form-group input:invalid,
-.form-group select:invalid,
-.form-group textarea:invalid {
-    border-color: #e5e5e5;
-}
-
-/* Loading state for form submission */
-.submit-button.loading {
-    position: relative;
-    color: white !important;
-    opacity: 1 !important;
-}
-
-.submit-button.loading::after {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    top: 50%;
-    left: 50%;
-    margin: -10px 0 0 -10px;
-    border: 2px solid #fff;
-    border-top-color: transparent;
-    border-radius: 50%;
-    animation: button-loading-spinner 1s linear infinite;
-}
-
-@keyframes button-loading-spinner {
-    from {
-        transform: rotate(0turn);
-    }
-    to {
-        transform: rotate(1turn);
-    }
-}
-
-/* Update form width and padding */
-.eligibility-form {
-    width: 380px;
-    padding: 25px 20px;
-}
-
-/* Update form inputs */
-.form-group input,
-.form-group select,
-.form-group textarea {
-    padding: 10px 15px;
-    font-size: 15px;
-    border: 1px solid #e5e5e5;
-    outline: none;
-}
-
-/* Update radio buttons */
-.radio-option {
-    padding: 6px 12px;
-    font-size: 14px;
-}
-
-/* Update terms text */
-.terms-agreement {
-    font-size: 11px;
-    line-height: 1.4;
-    color: rgba(255, 255, 255, 0.9);
-}
-
-.terms-agreement input[type="checkbox"] {
-    margin-right: 8px;
-}
-
-/* Ensure button text is visible in all states */
-.submit-button span,
-.submit-button i {
-    color: white !important;
-    opacity: 1 !important;
-}
-
-/* Ensure radio options in desktop form are visible */
-.desktop-only .radio-option {
-    background: white;
-    border: 1px solid #ddd;
-}
-
-.desktop-only .radio-option span,
-.desktop-only .radio-option input[type="radio"] {
-    color: var(--text-color);
-}
-
-/* Desktop form specific styles */
-.desktop-only.eligibility-form {
-    background: var(--primary-color);  /* Change back to blue background */
-}
-
-/* Keep text white for better contrast on blue background */
-.desktop-only.eligibility-form h2,
-.desktop-only.eligibility-form p,
-.desktop-only.eligibility-form .act-now,
-.desktop-only.eligibility-form .cta-features,
-.desktop-only.eligibility-form .assistance-text,
-.desktop-only.eligibility-form .get-in-touch,
-.desktop-only.eligibility-form .phone-box,
-.desktop-only.eligibility-form .form-security,
-.desktop-only.eligibility-form .form-group > label {
-    color: white;
-}
-
-/* Keep form elements with white background */
-.desktop-only .radio-option {
-    background: white;
-    border: 1px solid #ddd;
-}
-
-/* Keep radio button text dark for contrast against white background */
-.desktop-only .radio-option span {
-    color: var(--text-color);
-}
-
-/* Keep terms agreement styling consistent with blue background */
-.desktop-only .terms-agreement {
-    background: rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.9);
-}
-
-.desktop-only .terms-agreement a {
-    color: white;
-    text-decoration: underline;
-}
-
-/* Keep assistance section styling consistent */
-.desktop-only .form-assistance {
-    background: var(--primary-color);
-}
-
-.desktop-only .phone-box .phone-number {
-    color: #ff6b00;
-}
-
-/* Radio button styles */
-.radio-group {
-    display: flex;
-    gap: 15px;
-    margin-top: 8px;
-}
-
-.radio-option {
-    flex: 1;
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 12px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-/* Yes option when selected */
-.radio-option:has(input[type="radio"][value="yes"]:checked) {
-    background-color: #00b050; /* Solid green background */
-    border-color: #00b050;
-}
-
-.radio-option:has(input[type="radio"][value="yes"]:checked) span {
-    color: white !important; /* White text */
+/* Explicitly set "Check If You Qualify" heading color to white */
+.qualify-check h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
     font-weight: bold;
-}
-
-/* No option when selected */
-.radio-option:has(input[type="radio"][value="no"]:checked) {
-    background-color: #E31837; /* Solid red background */
-    border-color: #E31837;
-}
-
-.radio-option:has(input[type="radio"][value="no"]:checked) span {
-    color: white !important; /* White text */
-    font-weight: bold;
-}
-
-/* Radio input styling */
-.radio-option input[type="radio"] {
-    margin-right: 8px;
-    cursor: pointer;
-}
-
-/* Hover states */
-.radio-option:hover {
-    background-color: #f8f8f8;
-}
-
-.radio-option:has(input[type="radio"][value="yes"]:checked):hover {
-    background-color: #009544; /* Slightly darker green on hover */
-}
-
-.radio-option:has(input[type="radio"][value="no"]:checked):hover {
-    background-color: #cc1630; /* Slightly darker red on hover */
-}
-
-/* Add hover effect */
-.radio-option:hover {
-    background-color: #f8f8f8;
-}
-
-/* Remove any conflicting styles */
-.radio-option label span {
-    color: var(--text-color) !important;
-}
-
-/* Terms checkbox */
-.terms-agreement {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 15px;
-    border-radius: 4px;
-    font-size: 12px;
-    line-height: 1.4;
-    color: rgba(255, 255, 255, 0.9);
-    margin: 15px 0;
-}
-
-.terms-agreement a {
     color: white;
-    text-decoration: underline;
-}
-
-/* Submit button */
-.submit-button {
-    background: #00b050;
-    width: 100%;
-    padding: 15px;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    font-size: 16px;
-    font-weight: 600;
-    margin: 15px 0;
-    cursor: pointer;
-}
-
-.submit-button:hover {
-    background: #009544;
-}
-
-/* Act now text */
-.act-now {
-    color: white;
-}
-
-.red-dot {
-    color: #ff0000;
-    font-size: 24px;
-    line-height: 0;
-    margin-right: 2px;
-    animation: pulsate 1.5s ease-out infinite;
-}
-
-@keyframes pulsate {
-    0% {
-        opacity: 0.2;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0.2;
-    }
-}
-
-/* Form features section */
-.cta-features {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin: 15px 0;
-    color: white;
-    font-size: 14px;
-}
-
-.cta-features span {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.cta-features i {
-    color: var(--secondary-color);
-    font-size: 16px;
-}
-
-/* Form assistance section */
-.form-assistance {
-    text-align: center;
-    margin-top: 25px;
-    padding: 15px;
-    background: var(--primary-color);
-    border-radius: 4px;
-}
-
-/* Desktop form assistance section */
-.desktop-only .form-assistance {
-    background: var(--primary-color);
-}
-
-/* Assistance text styling */
-.assistance-text {
-    font-size: 14px;
-    color: white;
-    text-transform: uppercase;
-    position: relative;
-    display: inline-block;
-    padding: 0 15px;
-    margin-bottom: 15px;
-}
-
-/* Lines on sides of text */
-.assistance-text:before,
-.assistance-text:after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    width: 50px;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.2);
-}
-
-.assistance-text:before {
-    right: 100%;
-}
-
-.assistance-text:after {
-    left: 100%;
-}
-
-.phone-box {
-    display: block;
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 15px;
-    text-decoration: none;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.get-in-touch {
-    color: #333;
-    font-size: 14px;
-    margin: 0 0 10px 0;
-}
-
-.qualify-phone {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-}
-
-.qualify-phone img {
-    width: 24px;
-    height: 24px;
-}
-
-.phone-number {
-    color: #ff6b00;
-    font-size: 24px;
-    font-weight: bold;
-}
-
-/* Hover effect */
-.phone-box:hover {
-    border-color: var(--primary-color);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 /* Enhanced mobile styles */
@@ -1553,224 +1191,998 @@ footer {
     font-size: 16px;
 }
 
-/* Terms checkbox container styling */
-.checkbox-container {
+/* Active Lawsuit Card */
+.active-lawsuit-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.warning-header {
+    background: #ffd700;
+    color: #000;
+    padding: 12px;
+    font-weight: bold;
     display: flex;
-    align-items: flex-start;
-    gap: 10px;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
 }
 
-.checkbox-container input[type="checkbox"] {
-    margin-top: 3px; /* Align with first line of text */
-    flex-shrink: 0;
-    width: auto;
+.warning-header i {
+    color: #cc0000;
+}
+
+.lawsuit-info {
+    padding: 20px;
+}
+
+.product-images {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.product-images img {
+    width: 100%;
     height: auto;
+    display: block;
 }
 
-.terms-text {
-    flex: 1;
-    font-size: 11px;
-    line-height: 1.4;
+.info-section > div {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #e5e5e5;
+    position: relative;
 }
 
-/* Update terms agreement section */
-.terms-agreement {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 15px;
-    border-radius: 4px;
-    margin: 15px 0;
+.info-section > div:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
 }
 
-.terms-agreement a {
-    color: white;
+.products, .injuries, .payouts, .status {
+    position: relative;
+}
+
+.info-section i {
+    color: var(--primary-color);
+    margin-right: 8px;
+}
+
+.products p, .injuries p {
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.product-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.product-list li {
+    font-size: 14px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.product-list li i {
+    font-size: 8px;
+    color: #666;
+}
+
+.injuries ul {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0 0;
+}
+
+.injuries li {
+    font-size: 14px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.injuries li i {
+    font-size: 8px;
+    color: #666;
+}
+
+.payouts p, .status p {
+    margin: 4px 0 0 24px;
+    font-size: 14px;
+}
+
+/* Mobile styles */
+@media (max-width: 1024px) {
+    .join-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .active-lawsuit-card {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .left-content {
+        text-align: center;
+    }
+
+    .join-lawsuit h2 {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .join-lawsuit {
+        padding: 40px 0;
+    }
+
+    .join-lawsuit h2 {
+        font-size: 28px;
+    }
+
+    .join-description {
+        font-size: 14px;
+    }
+
+    .time-limited-box {
+        padding: 15px;
+        margin: 0 15px 30px;
+    }
+
+    .lawsuit-info {
+        padding: 15px;
+    }
+
+    .product-list {
+        grid-template-columns: 1fr;
+    }
+
+    .product-images {
+        margin: -15px -15px 15px -15px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    .product-images img {
+        border-radius: 0;
+    }
+
+    .feature-list {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+}
+
+/* Eligibility section styling */
+.eligibility {
+    padding: 60px 0;
+    background: #fff;
+}
+
+.eligibility-content {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 40px;
+    align-items: start;
+}
+
+.eligibility-text {
+    padding-right: 20px;
+}
+
+.eligibility-text h2 {
+    font-size: 36px;
+    color: #000;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.eligibility-text p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.contact-info {
+    background: #f7f7f7;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 30px 0;
+}
+
+.contact-info p {
+    margin: 0;
+}
+
+.phone-link {
+    color: #0066cc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.phone-link:hover {
     text-decoration: underline;
 }
 
-/* Phone number styling */
+.risk-groups-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.risk-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.risk-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.risk-content {
+    padding: 20px;
+}
+
+.risk-content h3 {
+    font-size: 18px;
+    color: #000;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.risk-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.risk-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.risk-column li {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.risk-column li:before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #666;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .eligibility-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .eligibility-text {
+        padding-right: 0;
+    }
+
+    .eligibility-text h2 {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .risk-groups-card {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .risk-list {
+        gap: 10px;
+    }
+}
+
+/* Process section styling */
+.process {
+    padding: 60px 0;
+    background: #fff;
+}
+
+.process h2 {
+    text-align: center;
+    font-size: 36px;
+    color: #000;
+    margin-bottom: 50px;
+    font-weight: bold;
+}
+
+.process-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.steps-timeline {
+    position: relative;
+    padding: 20px 0;
+}
+
+/* Timeline line */
+.steps-timeline::before {
+    content: '';
+    position: absolute;
+    left: 41px;
+    top: 25px;
+    height: calc(100% - 165px); /* Adjusted from 145px to 165px to make line shorter */
+    width: 2px;
+    background: #002B49;
+}
+
+.step-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 30px;
+    margin-bottom: 40px;
+    position: relative;
+    padding-left: 80px;
+}
+
+.step-wrapper:last-child {
+    margin-bottom: 0;
+}
+
+/* Timeline dot */
+.step-wrapper::before {
+    content: '';
+    position: absolute;
+    left: 34px;
+    top: 0;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #002B49;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px #002B49;
+    z-index: 1;
+}
+
+.step-number {
+    color: #002B49;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.step-content h3 {
+    font-size: 24px;
+    color: #000;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.step-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+}
+
+.step-content a {
+    color: #0066cc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.step-content a:hover {
+    text-decoration: underline;
+}
+
+.step-image {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.process-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .process h2 {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+
+    .step-wrapper {
+        grid-template-columns: 1fr;
+        padding-left: 60px;
+        gap: 20px;
+    }
+
+    .steps-timeline::before {
+        left: 31px;
+        top: 25px;
+        height: calc(100% - 145px); /* Maintain the same end point on mobile */
+    }
+
+    .step-wrapper::before {
+        left: 24px;
+    }
+
+    .step-image {
+        order: -1;
+        height: 200px;
+    }
+
+    .step-content h3 {
+        font-size: 20px;
+    }
+
+    .step-content p {
+        font-size: 14px;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .step-wrapper {
+        padding-left: 50px;
+    }
+
+    .steps-timeline::before {
+        left: 26px;
+    }
+
+    .step-wrapper::before {
+        left: 19px;
+    }
+}
+
+/* Trust Reasons section */
+.trust-reasons {
+    padding: 60px 0;
+    background: #fff;
+}
+
+.trust-reasons h2 {
+    text-align: center;
+    font-size: 36px;
+    color: #000;
+    margin-bottom: 50px;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.trust-content {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.trust-image {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.trust-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.trust-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.trust-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.trust-item img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.trust-text {
+    flex: 1;
+}
+
+.trust-text h3 {
+    font-size: 18px;
+    color: #000;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.trust-text p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+    margin: 0;
+}
+
+.trust-text a {
+    color: #0066cc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.trust-text a:hover {
+    text-decoration: underline;
+}
+
+.trust-cta {
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Compact version of the review button for this section */
+.get-review-btn.compact {
+    padding: 12px 24px;
+    font-size: 16px;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .trust-reasons h2 {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+
+    .trust-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .trust-image {
+        height: 200px;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .trust-list {
+        gap: 20px;
+    }
+
+    .trust-item {
+        gap: 15px;
+    }
+
+    .trust-item img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .trust-text h3 {
+        font-size: 16px;
+    }
+
+    .trust-text p {
+        font-size: 13px;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .trust-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .trust-item img {
+        margin-bottom: 10px;
+    }
+}
+
+/* FAQ section */
+.faq {
+    padding: 60px 0;
+    background: #fff;
+}
+
+.faq h2 {
+    text-align: center;
+    font-size: 36px;
+    color: #000;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    margin-bottom: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background: #fff;
+}
+
+.faq-question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    font-size: 16px;
+    color: #000;
+    font-weight: 500;
+}
+
+.faq-question i {
+    color: #002B49;
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    display: none;
+    padding: 0 20px 20px;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+.faq-answer p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Qualify Check section */
+.qualify-check {
+    padding: 60px 0;
+    background: #002B49;
+    color: white;
+    text-align: center;
+}
+
+.qualify-check h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.qualify-content {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.red-dot-text {
+    color: white;
+    font-size: 14px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.get-review-btn {
+    display: inline-block;
+    background: #00c853;
+    color: white;
+    text-decoration: none;
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    width: 100%;
+    max-width: 400px;
+    transition: background-color 0.3s ease;
+}
+
+.get-review-btn:hover {
+    background: #00b34a;
+}
+
+.qualify-features {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #333;  /* Default color is dark */
+    font-size: 14px;
+}
+
+.feature-item i {
+    color: #00c853;
+}
+
+/* Make feature items white in the qualify-check section and eligibility form */
+.qualify-check .feature-item,
+.eligibility-form .feature-item {
+    color: white;
+}
+
+/* CTA features section */
+.cta-features {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 15px 0;
+}
+
+/* Keep the rest of the qualify-check styles */
+.qualify-check {
+    padding: 60px 0;
+    background: #002B49;
+    color: white;
+    text-align: center;
+}
+
+.qualify-check h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.qualify-content {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.red-dot-text {
+    color: white;
+    font-size: 14px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.get-review-btn {
+    display: inline-block;
+    background: #00c853;
+    color: white;
+    text-decoration: none;
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    width: 100%;
+    max-width: 400px;
+    transition: background-color 0.3s ease;
+}
+
+.get-review-btn:hover {
+    background: #00b34a;
+}
+
+.qualify-features {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.assistance-divider {
+    position: relative;
+    text-align: center;
+    margin: 30px 0;
+}
+
+.assistance-divider span {
+    background: #002B49;
+    padding: 0 15px;
+    font-size: 14px;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+    color: white;
+}
+
+.assistance-divider::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+    z-index: 0;
+}
+
+.phone-box {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    display: block;
+    text-decoration: none;
+    margin-bottom: 20px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.get-in-touch {
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
 .phone-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     color: #ff6b00;
     font-size: 24px;
     font-weight: bold;
 }
 
-/* For the desktop form (white background) */
-.desktop-only .phone-box .phone-number {
-    color: #ff6b00;
+.phone-number img {
+    width: 24px;
+    height: 24px;
 }
 
-/* Hover state - keep orange color */
-.phone-box:hover .phone-number {
-    color: #ff6b00;
+.security-note {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    line-height: 1.4;
 }
 
-/* Override any white text color in desktop form */
-.desktop-only .phone-box .get-in-touch {
-    color: #333 !important;
+.security-note i {
+    color: #ffffff;
 }
 
-/* Override any white text color in mobile form */
-.eligibility-form .phone-box .get-in-touch {
-    color: #333 !important;
-}
-
-/* Optional: Add subtle focus state without red */
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    border-color: #002B49;
-    box-shadow: 0 0 0 1px rgba(0, 43, 73, 0.1);
-}
-
-/* Header mobile adjustments */
+/* Mobile styles */
 @media (max-width: 768px) {
-    /* Header container */
-    header {
-        padding: 10px 0;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        width: 100%;
+    .qualify-check h2 {
+        font-size: 28px;
     }
 
-    /* Navigation */
-    nav {
-        padding: 0 15px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        max-width: none;
-    }
-
-    /* Logo adjustments */
-    .logo img {
-        height: 40px;
-        width: auto;
-    }
-
-    /* Phone button container */
-    .contact-header {
-        flex-shrink: 1; /* Allow shrinking if needed */
-    }
-
-    /* Phone button styling */
-    .phone-button {
-        display: flex;
-        align-items: center;
-        padding: 6px 10px;
-        border-radius: 6px;
-        background: white;
-        border: 1px solid #ddd;
-        min-width: auto; /* Allow button to shrink */
-    }
-
-    /* Phone text container */
-    .phone-text {
-        display: flex;
+    .qualify-features {
         flex-direction: column;
-        gap: 0;
+        align-items: center;
+        gap: 15px;
     }
 
-    /* "Get In Touch Now" text */
-    .phone-text span:first-child {
-        font-size: 12px;
-        color: #666;
-        white-space: nowrap;
-    }
-
-    /* Phone number */
-    .phone-button .phone-number {
-        font-size: 16px;
-        font-weight: bold;
-        color: #ff6b00;
-        white-space: nowrap;
-    }
-
-    /* Phone icon */
-    .phone-icon img {
-        width: 16px;
-        height: 16px;
-        margin-right: 4px;
+    .phone-box {
+        width: 100%;
     }
 }
 
 /* Extra small screens */
-@media (max-width: 360px) {
-    nav {
-        padding: 0 10px;
-    }
-
-    .logo img {
-        height: 35px;
-    }
-
-    .phone-button {
-        padding: 4px 8px;
-    }
-
-    .phone-text span:first-child {
-        font-size: 11px;
-    }
-
-    .phone-button .phone-number {
-        font-size: 14px;
-    }
-}
-
-/* Ensure header stays fixed at top on mobile if needed */
 @media (max-width: 480px) {
-    header {
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        background: white;
-    }
-}
-
-/* Mobile adjustments */
-@media (max-width: 768px) {
-    body {
-        overflow-x: hidden; /* Prevent horizontal scroll */
-    }
-    
-    header {
-        width: 100vw;
-        left: 0;
-        right: 0;
-        margin: 0;
-    }
-}
-
-/* Remove any conflicting mobile styles */
-@media (max-width: 768px) {
-    header,
-    header .container,
-    nav {
-        width: 100%;
-        max-width: none;
-        margin: 0;
-    }
-}
-
-/* Mobile adjustments */
-@media (max-width: 768px) {
-    .container,
-    header .container {
+    .qualify-content {
         padding: 0 15px;
     }
+
+    .get-review-btn {
+        font-size: 16px;
+        padding: 14px 28px;
+    }
 }
 
-/* Reference section styling */
-.reference-list {
+.red-dot {
+    color: #ff0000;
+    font-size: 24px;
+    line-height: 0;
+    margin-right: 2px;
+    animation: pulsate 1.5s ease-out infinite;
+}
+
+@keyframes pulsate {
+    0% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.2;
+    }
+}
+
+.qualify-check .red-dot-text {
+    color: white;
+    font-size: 14px;
+    margin-bottom: 15px;
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
 }
 
-.reference-column {
-    flex: 1;
+.qualify-check .red-dot-text::before {
+    content: '•';
+    color: #ff0000;
+    font-size: 24px;
+    line-height: 0;
+    margin-right: 2px;
+    animation: pulsate 1.5s ease-out infinite;
+}
+
+/* References section styling */
+.references {
+    padding: 40px 0;
+    background: #f8f8f8;
+}
+
+.references h3 {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.reference-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    font-size: 12px;
+    line-height: 1.4;
 }
 
 .reference-column ol {
     padding-left: 20px;
+    margin: 0;
 }
 
 .reference-column li {
@@ -1778,225 +2190,287 @@ footer {
 }
 
 .reference-column a {
-    /* Add these properties to handle long URLs */
-    word-wrap: break-word;
+    color: #666;
+    text-decoration: none;
     word-break: break-all;
-    overflow-wrap: break-word;
-    display: inline-block;
-    max-width: 100%;
 }
 
-/* Mobile adjustments for references */
+.reference-column a:hover {
+    text-decoration: underline;
+}
+
+/* Legal disclaimer styling */
+.legal-disclaimer {
+    padding: 40px 0;
+    background: #fff;
+}
+
+.legal-disclaimer p {
+    font-size: 12px;
+    line-height: 1.4;
+    color: #666;
+}
+
+/* Mobile styles */
 @media (max-width: 768px) {
     .reference-list {
-        flex-direction: column;
-    }
-
-    .reference-column {
-        width: 100%;
-    }
-
-    .reference-column a {
-        font-size: 14px; /* Slightly smaller font on mobile */
-    }
-}
-
-/* Extra small screens */
-@media (max-width: 360px) {
-    .benefit-item {
-        padding: 8px;
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
     
-    .benefit-item img {
-        width: 16px;
-        height: 16px;
-    }
-    
-    .benefit-item span {
-        font-size: 12px;
+    .reference-column ol {
+        padding-left: 15px;
     }
 }
 
-/* Radio buttons styling */
-.radio-group {
-    display: flex;
-    gap: 15px;
-    margin-top: 8px;
+/* Join Lawsuit section styling */
+.join-lawsuit {
+    padding: 60px 0;
+    background: #fff;
 }
 
-.radio-option {
-    flex: 1;
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 12px;
+.join-content {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 40px;
+    align-items: start;
+}
+
+.left-content {
+    padding-right: 20px;
+}
+
+.left-content h2 {
+    font-size: 36px;
+    color: #000;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.join-description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.video-placeholder {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    background: #1a1a1a;
     display: flex;
     align-items: center;
+    justify-content: center;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    transition: all 0.3s ease;
+    z-index: 2;
 }
 
-/* Specific styling for the exposure question radio options */
-.form-group[data-question="exposure"] .radio-option input[type="radio"]:checked + span {
+.play-button i {
+    color: white;
+    font-size: 24px;
+    margin-left: 4px; /* Offset slightly to center the play icon */
+}
+
+.video-logo {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    height: 30px;
+    opacity: 0.8;
+}
+
+/* Time Limited Box styling */
+.time-limited-box {
+    display: flex;
+    gap: 20px;
+    background: #fff2f2;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.time-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    background: #ff0000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.time-icon i {
+    color: white;
+    font-size: 20px;
+}
+
+.time-content h3 {
+    font-size: 18px;
+    color: #ff0000;
+    margin-bottom: 10px;
     font-weight: bold;
 }
 
-/* Yes option when selected */
-.form-group[data-question="exposure"] .radio-option input[value="yes"]:checked + span {
-    color: #00b050; /* Green color */
+.time-content p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
 }
 
-/* No option when selected */
-.form-group[data-question="exposure"] .radio-option input[value="no"]:checked + span {
-    color: #E31837; /* Red color */
+/* Active Lawsuit Card styling */
+.active-lawsuit-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
 }
 
-/* Background color change on selection */
-.form-group[data-question="exposure"] .radio-option input[value="yes"]:checked ~ * {
-    background-color: rgba(0, 176, 80, 0.1); /* Light green background */
-}
-
-.form-group[data-question="exposure"] .radio-option input[value="no"]:checked ~ * {
-    background-color: rgba(227, 24, 55, 0.1); /* Light red background */
-}
-
-/* Radio button styles for Yes/No answers */
-.radio-option input[type="radio"][value="yes"]:checked + span {
-    color: #00b050 !important; /* Green */
+.warning-header {
+    background: #ffd700;
+    color: #000;
+    padding: 12px 20px;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
 }
 
-.radio-option input[type="radio"][value="no"]:checked + span {
-    color: #E31837 !important; /* Red */
-    font-weight: bold;
+.warning-header i {
+    color: #cc0000;
 }
 
-/* Background color changes */
-.radio-option input[type="radio"][value="yes"]:checked {
-    background-color: rgba(0, 176, 80, 0.1); /* Light green */
+.lawsuit-info {
+    padding: 20px;
 }
 
-.radio-option input[type="radio"][value="no"]:checked {
-    background-color: rgba(227, 24, 55, 0.1); /* Light red */
+.product-images {
+    margin: -20px -20px 20px -20px;
+    padding: 20px;
+    background: #fff;
+    text-align: center;
 }
 
-/* Add hover states */
-.radio-option:has(input[type="radio"][value="yes"]:checked) {
-    border-color: #00b050;
-    background-color: rgba(0, 176, 80, 0.1);
+.product-images img {
+    max-width: 100%;
+    height: auto;
 }
 
-.radio-option:has(input[type="radio"][value="no"]:checked) {
-    border-color: #E31837;
-    background-color: rgba(227, 24, 55, 0.1);
+.info-section {
+    margin-top: 20px;
 }
 
-/* Radio button color and animation styles */
-.radio-option input[type="radio"] {
-    transition: all 0.3s ease;
+.info-section > div {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
 }
 
-.radio-option:has(input[type="radio"][value="yes"]:checked) input[type="radio"] {
-    accent-color: #00b050;
-    transform: scale(1.2);
+.info-section > div:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
 }
 
-.radio-option:has(input[type="radio"][value="no"]:checked) input[type="radio"] {
-    accent-color: #E31837;
-    transform: scale(1.2);
+/* Products section */
+.products h4, .injuries h4, .payouts h4, .status h4 {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-/* Radio button color and animation styles - for both exposure and year questions */
-.radio-option input[type="radio"] {
-    transition: all 0.3s ease;
+.products h4 i, .injuries h4 i, .payouts h4 i, .status h4 i {
+    color: #002B49;
 }
 
-/* Yes/2004 Or After options when selected */
-.radio-option:has(input[type="radio"][value="yes"]:checked),
-.radio-option:has(input[type="radio"][value="2004-after"]:checked) {
-    background-color: #00b050;
-    border-color: #00b050;
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 10px;
 }
 
-.radio-option:has(input[type="radio"][value="yes"]:checked) span,
-.radio-option:has(input[type="radio"][value="2004-after"]:checked) span {
-    color: white !important;
-    font-weight: bold;
+.product-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.radio-option:has(input[type="radio"][value="yes"]:checked) input[type="radio"],
-.radio-option:has(input[type="radio"][value="2004-after"]:checked) input[type="radio"] {
-    accent-color: #00b050;
-    transform: scale(1.2);
+.product-list li {
+    font-size: 13px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
-/* No/Before 2004 options when selected */
-.radio-option:has(input[type="radio"][value="no"]:checked),
-.radio-option:has(input[type="radio"][value="before-2004"]:checked) {
-    background-color: #E31837;
-    border-color: #E31837;
+.product-list li i {
+    font-size: 6px;
+    color: #666;
 }
 
-.radio-option:has(input[type="radio"][value="no"]:checked) span,
-.radio-option:has(input[type="radio"][value="before-2004"]:checked) span {
-    color: white !important;
-    font-weight: bold;
+/* Mobile styles */
+@media (max-width: 1024px) {
+    .join-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .left-content {
+        padding-right: 0;
+    }
+
+    .active-lawsuit-card {
+        max-width: 600px;
+        margin: 0 auto;
+    }
 }
 
-.radio-option:has(input[type="radio"][value="no"]:checked) input[type="radio"],
-.radio-option:has(input[type="radio"][value="before-2004"]:checked) input[type="radio"] {
-    accent-color: #E31837;
-    transform: scale(1.2);
+@media (max-width: 768px) {
+    .product-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-/* Hover states */
-.radio-option:has(input[type="radio"][value="yes"]:checked):hover,
-.radio-option:has(input[type="radio"][value="2004-after"]:checked):hover {
-    background-color: #009544;
-}
+@media (max-width: 480px) {
+    .time-limited-box {
+        flex-direction: column;
+        text-align: center;
+    }
 
-.radio-option:has(input[type="radio"][value="no"]:checked):hover,
-.radio-option:has(input[type="radio"][value="before-2004"]:checked):hover {
-    background-color: #cc1630;
-}
+    .time-icon {
+        margin: 0 auto;
+    }
 
-/* Attorney question radio buttons - reverse colors */
-.radio-option:has(input[type="radio"][value="yes"][name*="attorney"]:checked) {
-    background-color: #E31837; /* Red for Yes */
-    border-color: #E31837;
-}
-
-.radio-option:has(input[type="radio"][value="yes"][name*="attorney"]:checked) span {
-    color: white !important;
-    font-weight: bold;
-}
-
-.radio-option:has(input[type="radio"][value="yes"][name*="attorney"]:checked) input[type="radio"] {
-    accent-color: #E31837;
-    transform: scale(1.2);
-}
-
-/* No option for attorney question */
-.radio-option:has(input[type="radio"][value="no"][name*="attorney"]:checked) {
-    background-color: #00b050; /* Green for No */
-    border-color: #00b050;
-}
-
-.radio-option:has(input[type="radio"][value="no"][name*="attorney"]:checked) span {
-    color: white !important;
-    font-weight: bold;
-}
-
-.radio-option:has(input[type="radio"][value="no"][name*="attorney"]:checked) input[type="radio"] {
-    accent-color: #00b050;
-    transform: scale(1.2);
-}
-
-/* Hover states for attorney question */
-.radio-option:has(input[type="radio"][value="yes"][name*="attorney"]:checked):hover {
-    background-color: #cc1630; /* Darker red */
-}
-
-.radio-option:has(input[type="radio"][value="no"][name*="attorney"]:checked):hover {
-    background-color: #009544; /* Darker green */
+    .product-list {
+        grid-template-columns: 1fr;
+    }
 }
