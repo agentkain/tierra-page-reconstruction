@@ -332,40 +332,92 @@ h2 {
     background: white;
     border: 1px solid #ddd;
     border-radius: 4px;
-    padding: 12px;
+    padding: 10px 12px;
     display: flex;
     align-items: center;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
+    gap: 8px;
 }
 
 .radio-option input[type="radio"] {
-    margin-right: 8px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: 0;
     cursor: pointer;
+    transition: accent-color 0.2s ease;
 }
 
+/* Radio text */
 .radio-option span {
-    color: var(--text-color);
     font-size: 14px;
+    color: var(--text-color);
+    transition: color 0.2s ease;
 }
 
-/* Ensure radio buttons are visible */
-.radio-option input[type="radio"] {
-    appearance: auto;
-    -webkit-appearance: auto;
-    width: auto;
-    height: auto;
-    margin: 0 8px 0 0;
+/* Yes/After 2004 selected state */
+.radio-option input[value="yes"]:checked ~ span,
+.radio-option input[value="2004-after"]:checked ~ span {
+    color: white !important;
 }
 
-/* Add hover effect */
-.radio-option:hover {
-    background-color: #f8f8f8;
+.radio-option input[value="yes"]:checked,
+.radio-option input[value="2004-after"]:checked {
+    accent-color: #00b050;
+    animation: radioScale 0.2s ease;
 }
 
-/* Remove any conflicting styles */
-.radio-option label span {
-    color: var(--text-color) !important;
+.radio-option:has(input[value="yes"]:checked),
+.radio-option:has(input[value="2004-after"]:checked) {
+    background: #00b050;
+    border-color: #00b050;
+}
+
+/* No/Before 2004 selected state */
+.radio-option input[value="no"]:checked ~ span,
+.radio-option input[value="before-2004"]:checked ~ span {
+    color: white !important;
+}
+
+.radio-option input[value="no"]:checked,
+.radio-option input[value="before-2004"]:checked {
+    accent-color: #ff0000;
+    animation: radioScale 0.2s ease;
+}
+
+.radio-option:has(input[value="no"]:checked),
+.radio-option:has(input[value="before-2004"]:checked) {
+    background: #ff0000;
+    border-color: #ff0000;
+}
+
+/* Animation */
+@keyframes radioScale {
+    0% {
+        transform: scale(0.8);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Fallback for browsers that don't support :has */
+.radio-option input[type="radio"]:checked ~ span {
+    color: white !important;
+}
+
+.radio-option input[value="yes"]:checked ~ span,
+.radio-option input[value="2004-after"]:checked ~ span {
+    color: white;
+}
+
+.radio-option input[value="no"]:checked ~ span,
+.radio-option input[value="before-2004"]:checked ~ span {
+    color: white;
 }
 
 /* Terms checkbox */
